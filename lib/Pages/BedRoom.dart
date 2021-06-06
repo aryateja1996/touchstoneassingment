@@ -7,7 +7,8 @@ class BedRoom extends StatefulWidget {
 }
 
 class _BedRoomState extends State<BedRoom> {
-  double slidervalue = 10;
+  double slidervalue = 100;
+  double opacity = 1;
   Color col = ColorPallete.intensityIndicator;
   @override
   Widget build(BuildContext context) {
@@ -87,7 +88,7 @@ class _BedRoomState extends State<BedRoom> {
                       height: 20,
                       width: 20,
                       decoration: BoxDecoration(
-                        color: col,
+                        color: col.withOpacity(opacity),
                         borderRadius: BorderRadius.all(Radius.circular(30)),
                       ),
                     ),
@@ -198,6 +199,7 @@ class _BedRoomState extends State<BedRoom> {
                                   onChanged: (double value) {
                                     setState(() {
                                       slidervalue = value;
+                                      opacity = value / 100;
                                     });
                                   },
                                 ),
